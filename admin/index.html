@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add a Student — Cyber Explorers Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../assets/img/doodles/favicon.svg">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .admin-shell{ max-width: 720px; margin: 40px auto; padding: 0 20px 60px; }
+  .admin-shell label{ display:block; font-family: var(--font-mono); font-size:.78rem; margin: 16px 0 6px; font-weight:700; }
+  .admin-shell input[type="text"], .admin-shell input[type="date"], .admin-shell textarea{
+    width:100%; padding:10px 12px; border:3px solid var(--ink); border-radius:10px;
+    font-family: var(--font-body); font-size:.95rem; background:#fff;
+  }
+  .admin-shell textarea{ font-family: var(--font-mono); font-size:.82rem; min-height: 160px; }
+  .check-row{ display:flex; gap:18px; flex-wrap:wrap; margin-top:6px; }
+  .check-row label{ display:flex; align-items:center; gap:8px; font-size:.85rem; margin:0; text-transform:none; }
+  .admin-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+  #qr-canvas{ margin-top: 16px; border:3px solid var(--ink); border-radius: 12px; background:#fff; padding:10px; }
+  .note{ background: var(--paper-2); border:2px dashed var(--ink); border-radius: 12px; padding:14px 16px; font-size:.86rem; margin-top:18px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span> CYBER_EXPLORERS</a>
+    <div class="nav-links"><span class="mono" style="font-size:.8rem;">ADMIN · not for public use</span></div>
+  </div>
+</nav>
+
+<div class="admin-shell">
+  <h1 style="margin-top:26px;">Add a Student</h1>
+  <p style="color:#555;">
+    This tool runs entirely in your browser — nothing is uploaded anywhere. It just helps you
+    build the JSON entry and the certificate's QR code. You still commit the result to the repo
+    yourself. See <a href="../README.md">README.md</a> for the full step-by-step.
+  </p>
+
+  <div class="note">
+    <strong>Before you start:</strong> if this student has a photo, save it as
+    <code>assets/img/students/&lt;certificate-id&gt;.jpg</code> in the repo first (see
+    <code>assets/img/students/README.md</code>). Get a signed photo release if your Club requires one.
+  </div>
+
+  <label for="site-base">Your site's base URL (used for the QR code)</label>
+  <input type="text" id="site-base" placeholder="https://your-username.github.io/cyber-explorers-verify/">
+
+  <label for="cert-id">Certificate ID</label>
+  <input type="text" id="cert-id" placeholder="CE-2026-001">
+
+  <label for="first-name">First name</label>
+  <input type="text" id="first-name" placeholder="Jordan">
+
+  <label for="last-initial">Last initial</label>
+  <input type="text" id="last-initial" maxlength="1" placeholder="M">
+
+  <label for="alias">Hacker alias (optional)</label>
+  <input type="text" id="alias" placeholder="ShadowByte">
+
+  <label for="cohort">Cohort</label>
+  <input type="text" id="cohort" value="October 2026">
+
+  <label for="completed">Completion date</label>
+  <input type="date" id="completed">
+
+  <label>Badges earned</label>
+  <div class="check-row">
+    <label><input type="checkbox" id="badge-1" checked> First Hack</label>
+    <label><input type="checkbox" id="badge-2"> Trap Spotter</label>
+    <label><input type="checkbox" id="badge-3"> Cyber Explorer</label>
+  </div>
+
+  <label for="photo-path">Photo path (leave blank for none)</label>
+  <input type="text" id="photo-path" placeholder="assets/img/students/CE-2026-001.jpg">
+
+  <div class="admin-actions">
+    <button class="btn btn-teal" id="generate-btn" type="button">Generate</button>
+    <button class="btn btn-ghost" id="download-qr" type="button" disabled>Download QR (PNG)</button>
+  </div>
+
+  <canvas id="qr-canvas" width="220" height="220" style="display:none;"></canvas>
+  <p id="qr-note" class="mono" style="font-size:.82rem;color:#a3521f;"></p>
+
+  <label for="output">JSON snippet — paste this into the array in <code>data/students.json</code></label>
+  <textarea id="output" readonly></textarea>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

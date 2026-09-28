@@ -1,0 +1,18 @@
+[
+  {
+    "id": "CE-2026-DEMO",
+    "firstName": "Riley",
+    "lastInitial": "T",
+    "hackerAlias": "GhostPixel",
+    "photo": "",
+    "cohort": "October 2026",
+    "completedDate": "2026-10-26",
+    "badges": {
+      "firstHack": true,
+      "trapSpotter": true,
+      "cyberExplorer": true
+    },
+    "status": "graduate",
+    "instructorId": "instructor-01"
+  }
+]

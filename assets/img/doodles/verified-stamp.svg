@@ -1,0 +1,15 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="arcTop" d="M 14 74 A 46 46 0 1 1 106 74" fill="none"/>
+    <path id="arcBottom" d="M 24 92 A 40 40 0 0 0 96 92" fill="none"/>
+  </defs>
+  <circle cx="60" cy="60" r="54" fill="#fff8ec" stroke="#0e9c8f" stroke-width="5"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#0e9c8f" stroke-width="2" stroke-dasharray="4 5"/>
+  <text font-family="'Space Mono','Courier New',monospace" font-size="11.5" font-weight="700" fill="#0e9c8f" letter-spacing="1.5">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">VERIFIED</textPath>
+  </text>
+  <text font-family="'Space Mono','Courier New',monospace" font-size="8.5" font-weight="700" fill="#0e9c8f" letter-spacing="1">
+    <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">AUTHENTIC</textPath>
+  </text>
+  <path d="M40 60 L54 74 L82 44" fill="none" stroke="#0e9c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

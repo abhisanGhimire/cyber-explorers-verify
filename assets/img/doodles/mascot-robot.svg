@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- antenna -->
+  <line x1="100" y1="18" x2="100" y2="34" stroke="#14151f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="100" cy="12" r="8" fill="#ff5c8a" stroke="#14151f" stroke-width="4.5"/>
+
+  <!-- head -->
+  <rect x="52" y="34" width="96" height="76" rx="22" fill="#fff8ec" stroke="#14151f" stroke-width="5"/>
+  <circle cx="80" cy="70" r="10" fill="#14151f"/>
+  <circle cx="120" cy="70" r="10" fill="#14151f"/>
+  <circle cx="83" cy="66" r="3" fill="#fff"/>
+  <circle cx="123" cy="66" r="3" fill="#fff"/>
+  <path d="M84 92 Q100 100 116 92" fill="none" stroke="#14151f" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- ears -->
+  <rect x="36" y="60" width="14" height="24" rx="6" fill="#1ec6b6" stroke="#14151f" stroke-width="4"/>
+  <rect x="150" y="60" width="14" height="24" rx="6" fill="#1ec6b6" stroke="#14151f" stroke-width="4"/>
+
+  <!-- body -->
+  <rect x="60" y="118" width="80" height="80" rx="18" fill="#7c5cff" stroke="#14151f" stroke-width="5"/>
+  <rect x="78" y="136" width="44" height="30" rx="6" fill="#fff8ec" stroke="#14151f" stroke-width="4"/>
+  <path d="M86 151 L94 145 L94 157 Z" fill="#0e9c8f"/>
+  <line x1="102" y1="146" x2="114" y2="146" stroke="#14151f" stroke-width="3" stroke-linecap="round"/>
+  <line x1="102" y1="153" x2="110" y2="153" stroke="#14151f" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="72" cy="184" r="6" fill="#ffd23f" stroke="#14151f" stroke-width="3.5"/>
+  <circle cx="128" cy="184" r="6" fill="#ffd23f" stroke="#14151f" stroke-width="3.5"/>
+
+  <!-- arms -->
+  <line x1="60" y1="140" x2="34" y2="158" stroke="#14151f" stroke-width="6" stroke-linecap="round"/>
+  <line x1="140" y1="140" x2="166" y2="122" stroke="#14151f" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="30" cy="162" r="8" fill="#ff7a45" stroke="#14151f" stroke-width="4"/>
+  <circle cx="170" cy="118" r="8" fill="#ff7a45" stroke="#14151f" stroke-width="4"/>
+
+  <!-- legs -->
+  <rect x="76" y="198" width="16" height="26" rx="6" fill="#14151f"/>
+  <rect x="108" y="198" width="16" height="26" rx="6" fill="#14151f"/>
+</svg>
