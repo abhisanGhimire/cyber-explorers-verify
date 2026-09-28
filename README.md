@@ -18,9 +18,16 @@ serve as-is.
 
 ## How it works
 
-1. Each certificate you print gets a unique **Certificate ID** (e.g. `CE-2026-014`) and
-   a QR code that points to:
-   `https://<your-username>.github.io/<repo-name>/verify.html?id=CE-2026-014`
+1. Each certificate gets one of 100 pre-generated, random **Certificate Codes** (format
+   `CE-XXXX-XXXX`, e.g. `CE-9X4K-P2RN`) from a private code ledger — not a sequential
+   number. A QR code on the certificate points to:
+   `https://<your-username>.github.io/<repo-name>/verify.html?id=CE-9X4K-P2RN`
+   Codes are drawn from a 31-character alphabet (no `0/O/1/I/L`, to stay readable on a
+   printout), giving over 850 billion possible combinations per code — they're generated
+   directly with a cryptographically secure random generator (not derived from a hash,
+   a name, or a sequence), so there's nothing about them to "crack." Guessing or
+   enumerating real codes from outside isn't practical. Keep the printed code ledger
+   private and never commit it to this repo — see [Privacy & safety](#privacy--safety).
 2. `verify.html` reads that `id` from the URL, looks it up in [`data/students.json`](data/students.json),
    and renders a certificate-style "verified" card — or a themed "not found" screen if the
    ID doesn't exist.
@@ -60,29 +67,37 @@ Delete the `CE-2026-DEMO` entry from `data/students.json` once you've added real
 4. Update the **"Your site's base URL"** field in the admin tool (`admin/index.html`) and
    the GitHub link in `index.html`'s footer to match.
 
-## Adding a new student (every time someone graduates a mission)
+## Adding a new student (every time someone completes a mission)
 
-1. **Save a photo (optional).** Drop it in `assets/img/students/` named after the
-   certificate ID, e.g. `assets/img/students/CE-2026-014.jpg`. Skip this if you don't have
-   one or don't have a photo release on file — a placeholder avatar is used automatically.
-2. **Open `admin/index.html`** in a browser (works locally by double-clicking it, or once
+1. **Pick the next unused code** from your private Certificate Code Ledger PDF and cross
+   it off as assigned. That code is this student's Certificate ID for good.
+2. **Save a photo (optional).** Drop it in `assets/img/students/` named after the
+   certificate code, e.g. `assets/img/students/CE-9X4K-P2RN.jpg`. Skip this if you don't
+   have one or don't have a photo release on file — a placeholder avatar is used
+   automatically.
+3. **Open `admin/index.html`** in a browser (works locally by double-clicking it, or once
    deployed at `https://.../admin/`). Fill in the form:
-   - Certificate ID (pick the next number in sequence, e.g. `CE-2026-015`)
+   - The certificate code from step 1 (the tool rejects anything that isn't in the
+     `CE-XXXX-XXXX` format, as a typo check)
    - First name + last initial (see [Privacy](#privacy--safety) below on why not full names)
    - Hacker alias, if they used one
    - Which badges they earned, and the completion date
-3. Click **Generate**. It shows you:
+4. Click **Generate**. It shows you:
    - A **JSON snippet** — copy it and paste it as a new entry inside the array in
      [`data/students.json`](data/students.json)
    - A **QR code** — download it and place it on the printed certificate, pointing at
      that student's `verify.html?id=...` page
-4. Commit and push:
+5. Commit and push:
    ```bash
    git add data/students.json assets/img/students/
-   git commit -m "Add certificate for CE-2026-015"
+   git commit -m "Add certificate CE-9X4K-P2RN"
    git push
    ```
-5. GitHub Pages redeploys automatically within a minute or two.
+6. GitHub Pages redeploys automatically within a minute or two.
+
+Need more codes once you've used all 100? Generate another batch the same way (a
+cryptographically random 8-character code from a 31-symbol alphabet, in two groups of 4)
+and keep the new ledger just as private as the first.
 
 The admin tool runs entirely in your browser — it never sends data anywhere. You still do
 the actual commit/push yourself, so nothing goes public until you choose to push it.
@@ -104,7 +119,16 @@ designed with that in mind:
 
 - **Names are shown as first name + last initial** (e.g. "Jordan M."), not full names.
 - **No page lists every student.** Certificates are only reachable one at a time, by their
-  exact ID from the QR code — the site can't be browsed as a roster.
+  exact code from the QR code — the site can't be browsed as a roster.
+- **Certificate codes are random, not sequential**, and generated with a cryptographically
+  secure random generator — never derived from a name, date, or hash of anything guessable.
+  That's what actually keeps the site from turning into a browsable roster: sequential IDs
+  (`CE-2026-001`, `-002`, ...) could be paged through by anyone; these can't be.
+- **Keep the code ledger private.** The PDF listing all 100 codes should stay on your own
+  machine — never commit it, post it, or add it to this repo. Once a code is assigned to a
+  student it necessarily becomes public (that's the point — it's how verification works),
+  but the *unused* codes staying private is what stops someone from working through the
+  whole batch to see who's in the program before you've even printed their certificate.
 - **Photos are optional.** Only add one if your program already has a signed photo/media
   release for that student, per your organization's usual policy.
 - If your program needs to publish a name/photo combination you're not comfortable with

@@ -231,7 +231,6 @@ h1, h2, h3{
 .timeline-card .date{ font-family: var(--font-mono); font-size:.8rem; font-weight:700; }
 .timeline-card h3{ font-family: var(--font-body); font-weight:800; margin: 2px 0 6px; font-size: 1.15rem; }
 .timeline-card p{ margin:0; font-size: .95rem; color:#42425a; }
-.timeline-item.off .timeline-card{ opacity: .65; border-style: dashed; box-shadow: none; }
 
 /* ---------- Team / instructor ---------- */
 .team-card{

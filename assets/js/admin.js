@@ -10,16 +10,27 @@
   const savedBase = localStorage.getItem(STORAGE_KEY);
   if (savedBase) siteBase.value = savedBase;
 
+  // Matches codes from the Certificate Code Ledger: CE-XXXX-XXXX using the
+  // A-Z/2-9 alphabet (no 0/O/1/I/L, to avoid mix-ups when read off a printout).
+  const CODE_PATTERN = /^CE-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}$/;
+
   $("generate-btn").addEventListener("click", () => {
     const base = siteBase.value.trim().replace(/\/?$/, "/");
     localStorage.setItem(STORAGE_KEY, base);
 
-    const id = $("cert-id").value.trim();
+    const id = $("cert-id").value.trim().toUpperCase();
     const firstName = $("first-name").value.trim();
     const lastInitial = $("last-initial").value.trim().toUpperCase();
+    const certIdNote = $("cert-id-note");
 
-    if (!id || !firstName || !lastInitial) {
-      alert("Please fill in at least Certificate ID, First name, and Last initial.");
+    if (!CODE_PATTERN.test(id)) {
+      certIdNote.textContent = "That doesn't look like a code from your Certificate Code Ledger (expected format CE-XXXX-XXXX). Double-check what's printed on the sheet.";
+      return;
+    }
+    certIdNote.textContent = "";
+
+    if (!firstName || !lastInitial) {
+      alert("Please fill in at least First name and Last initial.");
       return;
     }
 

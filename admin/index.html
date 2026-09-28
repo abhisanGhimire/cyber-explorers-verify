@@ -45,11 +45,18 @@
     <code>assets/img/students/README.md</code>). Get a signed photo release if your Club requires one.
   </div>
 
+  <div class="note">
+    <strong>Certificate codes are pre-generated, not made up here.</strong> Use the next unused
+    code from your private <em>Cyber Explorers Certificate Code Ledger</em> PDF (kept off this
+    repo). Cross it off as assigned once you use it — each code is meant to be used once.
+  </div>
+
   <label for="site-base">Your site's base URL (used for the QR code)</label>
   <input type="text" id="site-base" placeholder="https://your-username.github.io/cyber-explorers-verify/" value="https://abhisanghimire.github.io/cyber-explorers-verify/">
 
-  <label for="cert-id">Certificate ID</label>
-  <input type="text" id="cert-id" placeholder="CE-2026-001">
+  <label for="cert-id">Certificate code (from your code ledger)</label>
+  <input type="text" id="cert-id" placeholder="CE-XXXX-XXXX" style="text-transform:uppercase;">
+  <p id="cert-id-note" class="mono" style="font-size:.78rem;color:#a3521f;margin-top:4px;"></p>
 
   <label for="first-name">First name</label>
   <input type="text" id="first-name" placeholder="Jordan">
@@ -60,8 +67,8 @@
   <label for="alias">Hacker alias (optional)</label>
   <input type="text" id="alias" placeholder="ShadowByte">
 
-  <label for="cohort">Cohort</label>
-  <input type="text" id="cohort" value="October 2026">
+  <label for="cohort">Cohort (optional)</label>
+  <input type="text" id="cohort" placeholder="e.g. Fall 2026">
 
   <label for="completed">Completion date</label>
   <input type="date" id="completed">
@@ -74,7 +81,7 @@
   </div>
 
   <label for="photo-path">Photo path (leave blank for none)</label>
-  <input type="text" id="photo-path" placeholder="assets/img/students/CE-2026-001.jpg">
+  <input type="text" id="photo-path" placeholder="assets/img/students/CE-XXXX-XXXX.jpg">
 
   <div class="admin-actions">
     <button class="btn btn-teal" id="generate-btn" type="button">Generate</button>
