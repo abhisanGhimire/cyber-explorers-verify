@@ -1,5 +1,8 @@
 # Cyber Explorers — Certificate Verification Site
 
+**Live site:** https://abhisanghimire.github.io/cyber-explorers-verify/
+**Repo:** https://github.com/abhisanGhimire/cyber-explorers-verify
+
 A small static website that lets anyone scan the QR code on a **Cyber Explorers**
 graduation certificate and instantly see that it's authentic — the student's name,
 which badges they earned, when they finished, and who ran the program.
